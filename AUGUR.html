@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributor Metrics Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #646262;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #ea7439;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .distributor {
+            background-color: #0AEB39;
+            border: 1px solid #aeaaaa;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AUGUR Distributor Metrics 2023</h1>
+    </header>
+    <div class="container" id="dashboard">
+        <!-- Distributor Metrics will be populated here -->
+    </div>
+    <script>
+        // Mock data for distributors
+        const distributors = [
+            {
+                name: 'Distributor A',
+                shippedLastMonth: 1200,
+                forecastedToShip: 1500,
+                ytdAverage: 1100
+            },
+            {
+                name: 'Distributor B',
+                shippedLastMonth: 800,
+                forecastedToShip: 1000,
+                ytdAverage: 900
+            },
+            {
+                name: 'Distributor C',
+                shippedLastMonth: 1500,
+                forecastedToShip: 1600,
+                ytdAverage: 1400
+            }
+        ];
+
+        // Function to render distributor metrics
+        function renderDistributorMetrics() {
+            const dashboard = document.getElementById('dashboard');
+            dashboard.innerHTML = '';
+
+            distributors.forEach(distributor => {
+                const distributorDiv = document.createElement('div');
+                distributorDiv.classList.add('distributor');
+
+                distributorDiv.innerHTML = `
+                    <h2>${distributor.name}</h2>
+                    <p>Last Month: ${distributor.shippedLastMonth} goods</p>
+                    <p>Forecast: ${distributor.forecastedToShip} goods</p>
+                    <p>YTD Avg: ${distributor.ytdAverage} goods per month</p>
+                `;
+
+                dashboard.appendChild(distributorDiv);
+            });
+        }
+
+        // Initial rendering
+        renderDistributorMetrics();
+    </script>
+</body>
+</html>
